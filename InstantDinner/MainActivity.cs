@@ -11,6 +11,7 @@ namespace InstantDinner
         {
             base.OnCreate(bundle);
             
+
             SetContentView (Resource.Layout.Main);
         }
     }
