@@ -15,6 +15,11 @@ namespace InstantDinner
     [Activity(Label = "AddProducts")]
     public class AddProducts : Activity
     {
+        public override void OnBackPressed()
+        {
+            this.Finish();
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

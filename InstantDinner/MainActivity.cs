@@ -23,6 +23,7 @@ namespace InstantDinner
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
             Intent addProductsActivity = new Intent(this, typeof(AddProducts));
+            StartActivity(addProductsActivity);
 
         }
     }
