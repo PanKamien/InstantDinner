@@ -3,8 +3,8 @@
 <resources>
   <style name="btnMainStyle">
     <item name="android:textSize">25sp</item>
-    <item name="android:layout_marginBottom">35px</item>
-    <item name="android:height">150px</item>
+    <item name="android:layout_marginTop">25px</item>
+    <item name="android:height">125px</item>
   </style>
 
 </resources>
