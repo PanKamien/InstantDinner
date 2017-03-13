@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.OS;
 using System;
+using Android.Content;
 
 namespace InstantDinner
 {
@@ -21,7 +22,8 @@ namespace InstantDinner
 
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Intent addProductsActivity = new Intent(this, typeof(AddProducts));
+
         }
     }
 }
