@@ -3,10 +3,11 @@ using Android.Widget;
 using Android.OS;
 using System;
 using Android.Content;
+using Android.Content.PM;
 
 namespace InstantDinner
 {
-    [Activity(Label = "InstantDinner", MainLauncher = true, Icon = "@drawable/icon", Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
+    [Activity(Label = "InstantDinner", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

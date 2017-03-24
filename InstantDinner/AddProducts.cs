@@ -10,19 +10,21 @@ using Android.Views;
 using Android.Widget;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Android.Content.PM;
 
 namespace InstantDinner
 {
 
 
-    [Activity(Label = "AddProducts")]
+    [Activity(Label = "AddProducts", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
     public class AddProducts : Activity
     {
+        RootObject dane;
         TextView txtViewRecipeTitle, txtViewRecipeCount;
         EditText edtTxtProduct1, edtTxtProduct2, edtTxtProduct3, edtTxtProduct4, edtTxtProduct5;
         int i, recipeCount;
         string key, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5;
-        Button button1;
+        Button buttonSearch, buttonNext;
 
 
         public override void OnBackPressed()
@@ -42,8 +44,10 @@ namespace InstantDinner
             // Create your application here
             SetContentView(Resource.Layout.AddProducts);
             txtViewRecipeTitle = FindViewById<TextView>(Resource.Id.txtViewRecipeTitle);
-            button1 = FindViewById<Button>(Resource.Id.button1);
-            button1.Enabled = true;
+            buttonSearch = FindViewById<Button>(Resource.Id.buttonSearch);
+            buttonNext = FindViewById<Button>(Resource.Id.buttonNext);
+            buttonSearch.Enabled = true;
+            buttonNext.Enabled = false;
             i = 0;
             
 
@@ -60,9 +64,9 @@ namespace InstantDinner
             recipeCount = 5;
 
 
-            button1.Click += (s, e) =>
+            buttonSearch.Click += (s, e) =>
             {
-                
+                i = 0;
                 if ((edtTxtProduct1.Text == "" ) && (edtTxtProduct2.Text == "") && (edtTxtProduct3.Text == "") && (edtTxtProduct4.Text == "") && (edtTxtProduct5.Text == ""))
                 {
                     i = 999999999;
@@ -76,21 +80,38 @@ namespace InstantDinner
                 }
                 else
                 {
-                    button1.Enabled = false;
                     txtViewRecipeTitle.Text = "No more recipes";
+                    buttonNext.Enabled = false;
+                    buttonSearch.Enabled = true;
                 }
 
                 
             };
 
-            
+
+            buttonNext.Click += (s, e) =>
+            {
+              
+
+                if (i < recipeCount)
+                {
+                    ShowRecipes();
+
+                }
+                else
+                {
+                    txtViewRecipeTitle.Text = "No more recipes";
+                    buttonNext.Enabled = false;
+                    buttonSearch.Enabled = true;
+                }
+            };
         }
 
         //shredded%20chicken,salt,bread
 
         public async void SearchRecipe()
         {
-            RootObject dane;
+
 
             ingredient1 = edtTxtProduct1.Text;
             ingredient2 = edtTxtProduct2.Text;
@@ -100,7 +121,8 @@ namespace InstantDinner
 
 
 
-            button1.Text = "Next";
+            buttonSearch.Enabled = false;
+            buttonNext.Enabled = true;
 
             
 
@@ -111,13 +133,20 @@ namespace InstantDinner
                 dane = JsonConvert.DeserializeObject<RootObject>(json);
                 recipeCount = dane.count;
                 txtViewRecipeCount.Text = "Number of recipes: " + recipeCount;
-                txtViewRecipeTitle.Text = (i+1) +  ". " + dane.recipes[i].title;
+                txtViewRecipeTitle.Text = (i + 1) + ". " + dane.recipes[i].title;
                 i++;
 
             }
             
 
             
+        }
+
+        public void ShowRecipes()
+        {
+            txtViewRecipeCount.Text = "Number of recipes: " + recipeCount;
+            txtViewRecipeTitle.Text = (i + 1) + ". " + dane.recipes[i].title;
+            i++;
         }
     }
 }
