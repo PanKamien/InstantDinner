@@ -21,7 +21,7 @@ namespace InstantDinner
         TextView txtViewRecipeTitle, txtViewRecipeCount;
         EditText edtTxtProduct1, edtTxtProduct2, edtTxtProduct3, edtTxtProduct4, edtTxtProduct5;
         int i, recipeCount;
-        string key;
+        string key, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5;
         Button button1;
 
 
@@ -63,6 +63,12 @@ namespace InstantDinner
             button1.Click += (s, e) =>
             {
                 
+                if ((edtTxtProduct1.Text == "" ) && (edtTxtProduct2.Text == "") && (edtTxtProduct3.Text == "") && (edtTxtProduct4.Text == "") && (edtTxtProduct5.Text == ""))
+                {
+                    i = 999999999;
+                    
+                }
+
                 if(i < recipeCount )
                 {
                     SearchRecipe();
@@ -86,11 +92,13 @@ namespace InstantDinner
         {
             RootObject dane;
 
-            string ingredient1 = edtTxtProduct1.Text;
-            string ingredient2 = edtTxtProduct2.Text;
-            string ingredient3 = edtTxtProduct3.Text;
-            string ingredient4 = edtTxtProduct4.Text;
-            string ingredient5 = edtTxtProduct5.Text;
+            ingredient1 = edtTxtProduct1.Text;
+            ingredient2 = edtTxtProduct2.Text;
+            ingredient3 = edtTxtProduct3.Text;
+            ingredient4 = edtTxtProduct4.Text;
+            ingredient5 = edtTxtProduct5.Text;
+
+
 
             button1.Text = "Next";
 
