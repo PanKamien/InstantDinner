@@ -99,6 +99,9 @@ namespace InstantDinner
 			// aapt resource value: 0x7f06000a
 			public const int imageView1 = 2131099658;
 			
+			// aapt resource value: 0x7f06000f
+			public const int imageViewRecipeImage = 2131099663;
+			
 			// aapt resource value: 0x7f060009
 			public const int linearLayoutMain = 2131099657;
 			
@@ -129,6 +132,9 @@ namespace InstantDinner
 			
 			// aapt resource value: 0x7f030001
 			public const int Main = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int SearchRecipes = 2130903042;
 			
 			static Layout()
 			{

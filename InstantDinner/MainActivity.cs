@@ -7,7 +7,7 @@ using Android.Content.PM;
 
 namespace InstantDinner
 {
-    [Activity(Label = "InstantDinner", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
+    [Activity(Label = "InstantDinner", MainLauncher = true, Icon = "@drawable/food1", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
