@@ -1,12 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 using System.Net.Http;
@@ -20,7 +15,7 @@ namespace InstantDinner
     {
         RootObject dane;
         ImageView imageViewRecipeImage;
-        TextView txtViewRecipeTitle;
+        TextView txtViewRecipeTitle, txtViewPublisher;
         string ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, key;
         int recipeCount;
 
@@ -35,6 +30,7 @@ namespace InstantDinner
 
             imageViewRecipeImage = FindViewById<ImageView>(Resource.Id.imageViewRecipeImage);
             txtViewRecipeTitle = FindViewById<TextView>(Resource.Id.txtViewRecipeTitle);
+            txtViewPublisher = FindViewById<TextView>(Resource.Id.txtViewPublisher);
 
             key = "9393b6d777ae25211c8b14a569882e64";
             ingredient1 = Intent.GetStringExtra("ingredient1" ?? "");
@@ -43,16 +39,12 @@ namespace InstantDinner
             ingredient4 = Intent.GetStringExtra("ingredient4" ?? "");
             ingredient5 = Intent.GetStringExtra("ingredient5" ?? "");
 
-
-
             SearchRecipe();
 
         }
 
         public async void SearchRecipe()
         {
-           
-
             using (var httpClient = new HttpClient())
             {
                 string url = String.Format("http://food2fork.com/api/search?key={0}&q={1},{2},{3},{4},{5}", key, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5);
@@ -69,7 +61,7 @@ namespace InstantDinner
                 Picasso.With(this).Load(dane.recipes[0].image_url).Into(imageViewRecipeImage);
 
                 txtViewRecipeTitle.Text = dane.recipes[0].title;
-
+                txtViewPublisher.Text = dane.recipes[0].publisher;
             }
         }
     }

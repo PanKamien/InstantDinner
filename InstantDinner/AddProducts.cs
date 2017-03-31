@@ -1,16 +1,11 @@
-using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using System.Net.Http;
-using Newtonsoft.Json;
 using Android.Content.PM;
-using System.Threading.Tasks;
 using Android.Content;
 
 namespace InstantDinner
 {
-
 
     [Activity(Label = "AddProducts", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
     public class AddProducts : Activity
@@ -18,7 +13,6 @@ namespace InstantDinner
         TextView txtViewRecipeTitle, txtViewRecipeCount;
         EditText edtTxtProduct1, edtTxtProduct2, edtTxtProduct3, edtTxtProduct4, edtTxtProduct5;
         Button buttonSearch;
-
 
         public override void OnBackPressed()
         {
@@ -30,17 +24,9 @@ namespace InstantDinner
         {
             base.OnCreate(savedInstanceState);
 
-
-            // Create your application here
             SetContentView(Resource.Layout.AddProducts);
             txtViewRecipeTitle = FindViewById<TextView>(Resource.Id.txtViewRecipeTitle);
             buttonSearch = FindViewById<Button>(Resource.Id.buttonSearch);
-
-            //i = 0;
-            
-
-
-
 
             txtViewRecipeCount = FindViewById<TextView>(Resource.Id.txtViewRecipeCount);
             edtTxtProduct1 = FindViewById<EditText>(Resource.Id.edtTxtProduct1);
@@ -49,51 +35,12 @@ namespace InstantDinner
             edtTxtProduct4 = FindViewById<EditText>(Resource.Id.edtTxtProduct4);
             edtTxtProduct5 = FindViewById<EditText>(Resource.Id.edtTxtProduct5);
 
-
-
             buttonSearch.Click += (s, e) =>
             {
-                //i = 0;
-                //if ((edtTxtProduct1.Text == "" ) && (edtTxtProduct2.Text == "") && (edtTxtProduct3.Text == "") && (edtTxtProduct4.Text == "") && (edtTxtProduct5.Text == ""))
-                //{
-                //    i = 999999999;
-
-                //}
-
-
                 GetRecipe();
-                
             };
 
-
-            //buttonNext.Click += (s, e) =>
-            //{
-              
-
-            //    if (i < recipeCount)
-            //    {
-            //        ShowRecipes();
-
-            //    }
-            //    else
-            //    {
-            //        txtViewRecipeTitle.Text = "No more recipes";
-            //        buttonNext.Enabled = false;
-            //        buttonSearch.Enabled = true;
-            //    }
-            //};
         }
-
-        //shredded%20chicken,salt,bread
-
-        
-
-        //public void ShowRecipes()
-        //{
-        //    txtViewRecipeCount.Text = "Number of recipes: " + recipeCount;
-        //    txtViewRecipeTitle.Text = (i + 1) + ". " + dane.recipes[i].title;
-        //    i++;
-        //}
 
         public void GetRecipe()
         {

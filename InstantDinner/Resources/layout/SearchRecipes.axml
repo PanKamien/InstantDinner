@@ -11,9 +11,22 @@
         android:id="@+id/imageViewRecipeImage"
         android:layout_marginBottom="20dp" />
     <TextView
-        android:text="Medium Text"
+        android:text="Recipe Title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/txtViewRecipeTitle" />
+    <TextView
+        android:text="Publisher"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtViewRecipeTitle" />
+        android:layout_marginBottom="20dp"
+        android:id="@+id/txtViewPublisher" />
+    <Button
+        android:text="Next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonNextRecipe" />
 </LinearLayout>

@@ -78,6 +78,9 @@ namespace InstantDinner
 			// aapt resource value: 0x7f060008
 			public const int buttonNext = 2131099656;
 			
+			// aapt resource value: 0x7f060011
+			public const int buttonNextRecipe = 2131099665;
+			
 			// aapt resource value: 0x7f060007
 			public const int buttonSearch = 2131099655;
 			
@@ -107,6 +110,9 @@ namespace InstantDinner
 			
 			// aapt resource value: 0x7f06000d
 			public const int linearLayoutMainDown = 2131099661;
+			
+			// aapt resource value: 0x7f060010
+			public const int txtViewPublisher = 2131099664;
 			
 			// aapt resource value: 0x7f060005
 			public const int txtViewRecipeCount = 2131099653;
