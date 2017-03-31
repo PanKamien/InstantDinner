@@ -15,9 +15,10 @@ namespace InstantDinner
     {
         RootObject dane;
         ImageView imageViewRecipeImage;
-        TextView txtViewRecipeTitle, txtViewPublisher;
+        TextView txtViewRecipeTitle, txtViewPublisher, txtViewNumberOfRecipes;
         string ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, key;
-        int recipeCount;
+        int recipeCount, i;
+        Button buttonNextRecipe;
 
         public override void OnBackPressed()
         {
@@ -31,7 +32,11 @@ namespace InstantDinner
             imageViewRecipeImage = FindViewById<ImageView>(Resource.Id.imageViewRecipeImage);
             txtViewRecipeTitle = FindViewById<TextView>(Resource.Id.txtViewRecipeTitle);
             txtViewPublisher = FindViewById<TextView>(Resource.Id.txtViewPublisher);
+            txtViewNumberOfRecipes = FindViewById<TextView>(Resource.Id.textViewNumberOfRecipes);
+            buttonNextRecipe = FindViewById<Button>(Resource.Id.buttonNextRecipe);
+            buttonNextRecipe.Enabled = false;
 
+            i = 1;
             key = "9393b6d777ae25211c8b14a569882e64";
             ingredient1 = Intent.GetStringExtra("ingredient1" ?? "");
             ingredient2 = Intent.GetStringExtra("ingredient2" ?? "");
@@ -39,7 +44,12 @@ namespace InstantDinner
             ingredient4 = Intent.GetStringExtra("ingredient4" ?? "");
             ingredient5 = Intent.GetStringExtra("ingredient5" ?? "");
 
+
             SearchRecipe();
+            buttonNextRecipe.Click += (s, e) =>
+            {
+                NextRecipe();
+            };
 
         }
 
@@ -51,18 +61,45 @@ namespace InstantDinner
                 var json = await httpClient.GetStringAsync(url);
                 dane = JsonConvert.DeserializeObject<RootObject>(json);
                 recipeCount = dane.count;
-                //if (recipeCount > 0)
-                //{
-                //    txtViewRecipeCount.Text = "Number of recipes: " + recipeCount;
-                //    txtViewRecipeTitle.Text = (i + 1) + ". " + dane.recipes[i].title;
-                //    i++;
-                //}
+                if (recipeCount > 0)
+                {
+                    txtViewNumberOfRecipes.Text = "Recipe: 1/" +  dane.count.ToString();
+                    Picasso.With(this).Load(dane.recipes[0].image_url).Into(imageViewRecipeImage);
+                    txtViewRecipeTitle.Text = dane.recipes[0].title;
+                    txtViewPublisher.Text = dane.recipes[0].publisher;
+                    buttonNextRecipe.Enabled = true;
+                }
+                else
+                {
+                    txtViewRecipeTitle.Text = "Recipes not found";
+                    txtViewPublisher.Text = "";
+                    buttonNextRecipe.Enabled = false;
+                }
 
-                Picasso.With(this).Load(dane.recipes[0].image_url).Into(imageViewRecipeImage);
-
-                txtViewRecipeTitle.Text = dane.recipes[0].title;
-                txtViewPublisher.Text = dane.recipes[0].publisher;
+                
             }
         }
+
+        public void NextRecipe()
+        {
+
+            if (i < recipeCount)
+            {
+                txtViewNumberOfRecipes.Text = "Recipe: " + (i+1) + "/" + dane.count.ToString();
+                Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                txtViewRecipeTitle.Text = dane.recipes[i].title;
+                txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
+                i++;
+            }
+            else
+            {
+                Toast.MakeText(this, "No more recipes", ToastLength.Short).Show();
+            }
+        }
+
+
+
+
+
     }
 }

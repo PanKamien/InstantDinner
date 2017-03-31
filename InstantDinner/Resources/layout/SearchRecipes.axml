@@ -4,21 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20px">
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/textViewNumberOfRecipes" />
     <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageViewRecipeImage"
         android:layout_marginBottom="20dp" />
     <TextView
-        android:text="Recipe Title"
+        android:text="Loading recipes..."
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:id="@+id/txtViewRecipeTitle" />
     <TextView
-        android:text="Publisher"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
