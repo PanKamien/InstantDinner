@@ -32,28 +32,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20px"
+        android:layout_marginBottom="20dp"
         android:hint="Add product"
         android:id="@+id/edtTxtProduct5" />
-    <TextView
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtViewRecipeCount" />
-    <TextView
-        android:text="ddd"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtViewRecipeTitle" />
     <Button
         android:text="Search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonSearch" />
-    <Button
-        android:text="Next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonNext" />
 </LinearLayout>

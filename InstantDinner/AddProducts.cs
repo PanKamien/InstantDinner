@@ -25,10 +25,9 @@ namespace InstantDinner
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.AddProducts);
+
             txtViewRecipeTitle = FindViewById<TextView>(Resource.Id.txtViewRecipeTitle);
             buttonSearch = FindViewById<Button>(Resource.Id.buttonSearch);
-
-            txtViewRecipeCount = FindViewById<TextView>(Resource.Id.txtViewRecipeCount);
             edtTxtProduct1 = FindViewById<EditText>(Resource.Id.edtTxtProduct1);
             edtTxtProduct2 = FindViewById<EditText>(Resource.Id.edtTxtProduct2);
             edtTxtProduct3 = FindViewById<EditText>(Resource.Id.edtTxtProduct3);

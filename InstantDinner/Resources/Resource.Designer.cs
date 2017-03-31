@@ -66,23 +66,20 @@ namespace InstantDinner
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06000e
-			public const int btnAbout = 2131099662;
-			
 			// aapt resource value: 0x7f06000b
-			public const int btnAddProducts = 2131099659;
-			
-			// aapt resource value: 0x7f06000c
-			public const int btnMealsHistory = 2131099660;
+			public const int btnAbout = 2131099659;
 			
 			// aapt resource value: 0x7f060008
-			public const int buttonNext = 2131099656;
+			public const int btnAddProducts = 2131099656;
 			
-			// aapt resource value: 0x7f060011
-			public const int buttonNextRecipe = 2131099665;
+			// aapt resource value: 0x7f060009
+			public const int btnMealsHistory = 2131099657;
 			
-			// aapt resource value: 0x7f060007
-			public const int buttonSearch = 2131099655;
+			// aapt resource value: 0x7f06000f
+			public const int buttonNextRecipe = 2131099663;
+			
+			// aapt resource value: 0x7f060005
+			public const int buttonSearch = 2131099653;
 			
 			// aapt resource value: 0x7f060000
 			public const int edtTxtProduct1 = 2131099648;
@@ -99,26 +96,23 @@ namespace InstantDinner
 			// aapt resource value: 0x7f060004
 			public const int edtTxtProduct5 = 2131099652;
 			
-			// aapt resource value: 0x7f06000a
-			public const int imageView1 = 2131099658;
+			// aapt resource value: 0x7f060007
+			public const int imageView1 = 2131099655;
 			
-			// aapt resource value: 0x7f06000f
-			public const int imageViewRecipeImage = 2131099663;
-			
-			// aapt resource value: 0x7f060009
-			public const int linearLayoutMain = 2131099657;
-			
-			// aapt resource value: 0x7f06000d
-			public const int linearLayoutMainDown = 2131099661;
-			
-			// aapt resource value: 0x7f060010
-			public const int txtViewPublisher = 2131099664;
-			
-			// aapt resource value: 0x7f060005
-			public const int txtViewRecipeCount = 2131099653;
+			// aapt resource value: 0x7f06000c
+			public const int imageViewRecipeImage = 2131099660;
 			
 			// aapt resource value: 0x7f060006
-			public const int txtViewRecipeTitle = 2131099654;
+			public const int linearLayoutMain = 2131099654;
+			
+			// aapt resource value: 0x7f06000a
+			public const int linearLayoutMainDown = 2131099658;
+			
+			// aapt resource value: 0x7f06000e
+			public const int txtViewPublisher = 2131099662;
+			
+			// aapt resource value: 0x7f06000d
+			public const int txtViewRecipeTitle = 2131099661;
 			
 			static Id()
 			{
