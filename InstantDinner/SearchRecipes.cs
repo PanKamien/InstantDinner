@@ -18,7 +18,7 @@ namespace InstantDinner
         TextView txtViewRecipeTitle, txtViewPublisher, txtViewNumberOfRecipes;
         string ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, key;
         int recipeCount, i;
-        Button buttonNextRecipe;
+        Button buttonPreviousRecipe ,buttonNextRecipe;
 
         public override void OnBackPressed()
         {
@@ -33,6 +33,7 @@ namespace InstantDinner
             txtViewRecipeTitle = FindViewById<TextView>(Resource.Id.txtViewRecipeTitle);
             txtViewPublisher = FindViewById<TextView>(Resource.Id.txtViewPublisher);
             txtViewNumberOfRecipes = FindViewById<TextView>(Resource.Id.textViewNumberOfRecipes);
+            buttonPreviousRecipe = FindViewById<Button>(Resource.Id.buttonPreviousRecipe);
             buttonNextRecipe = FindViewById<Button>(Resource.Id.buttonNextRecipe);
             buttonNextRecipe.Enabled = false;
 

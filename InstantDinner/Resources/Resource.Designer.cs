@@ -75,8 +75,11 @@ namespace InstantDinner
 			// aapt resource value: 0x7f060009
 			public const int btnMealsHistory = 2131099657;
 			
+			// aapt resource value: 0x7f060011
+			public const int buttonNextRecipe = 2131099665;
+			
 			// aapt resource value: 0x7f060010
-			public const int buttonNextRecipe = 2131099664;
+			public const int buttonPreviousRecipe = 2131099664;
 			
 			// aapt resource value: 0x7f060005
 			public const int buttonSearch = 2131099653;
