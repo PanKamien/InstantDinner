@@ -35,9 +35,10 @@ namespace InstantDinner
             txtViewNumberOfRecipes = FindViewById<TextView>(Resource.Id.textViewNumberOfRecipes);
             buttonPreviousRecipe = FindViewById<Button>(Resource.Id.buttonPreviousRecipe);
             buttonNextRecipe = FindViewById<Button>(Resource.Id.buttonNextRecipe);
+            buttonPreviousRecipe.Enabled = false;
             buttonNextRecipe.Enabled = false;
 
-            i = 1;
+            i = 0;
             key = "9393b6d777ae25211c8b14a569882e64";
             ingredient1 = Intent.GetStringExtra("ingredient1" ?? "");
             ingredient2 = Intent.GetStringExtra("ingredient2" ?? "");
@@ -47,9 +48,15 @@ namespace InstantDinner
 
 
             SearchRecipe();
+
             buttonNextRecipe.Click += (s, e) =>
             {
                 NextRecipe();
+            };
+
+            buttonPreviousRecipe.Click += (s, e) =>
+            {
+                PreviousRecipe();
             };
 
         }
@@ -62,13 +69,21 @@ namespace InstantDinner
                 var json = await httpClient.GetStringAsync(url);
                 dane = JsonConvert.DeserializeObject<RootObject>(json);
                 recipeCount = dane.count;
-                if (recipeCount > 0)
+                
+                if (recipeCount > 1)
                 {
                     txtViewNumberOfRecipes.Text = "Recipe: 1/" +  dane.count.ToString();
-                    Picasso.With(this).Load(dane.recipes[0].image_url).Into(imageViewRecipeImage);
-                    txtViewRecipeTitle.Text = dane.recipes[0].title;
-                    txtViewPublisher.Text = dane.recipes[0].publisher;
+                    Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                    txtViewRecipeTitle.Text = dane.recipes[i].title;
+                    txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
                     buttonNextRecipe.Enabled = true;
+                }
+                else if (recipeCount == 1)
+                {
+                    txtViewNumberOfRecipes.Text = "Recipe: 1/" + dane.count.ToString();
+                    Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                    txtViewRecipeTitle.Text = dane.recipes[i].title;
+                    txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
                 }
                 else
                 {
@@ -84,17 +99,40 @@ namespace InstantDinner
         public void NextRecipe()
         {
 
-            if (i < recipeCount)
+            if (i < recipeCount-1)
             {
+                i++;
                 txtViewNumberOfRecipes.Text = "Recipe: " + (i+1) + "/" + dane.count.ToString();
                 Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
                 txtViewRecipeTitle.Text = dane.recipes[i].title;
                 txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
-                i++;
+                buttonPreviousRecipe.Enabled = true;
+                if (i == recipeCount - 1)
+                    buttonNextRecipe.Enabled = false;
             }
             else
             {
                 Toast.MakeText(this, "No more recipes", ToastLength.Short).Show();
+            }
+        }
+
+        public void PreviousRecipe()
+        {
+            if (i > 0)
+            {
+                i--;
+                txtViewNumberOfRecipes.Text = "Recipe: " + (i + 1) + "/" + dane.count.ToString();
+                Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                txtViewRecipeTitle.Text = dane.recipes[i].title;
+                txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
+                buttonNextRecipe.Enabled = true;
+                if (i == 0)
+                    buttonPreviousRecipe.Enabled = false;
+                
+            }
+            else
+            {
+                Toast.MakeText(this, "First recipe", ToastLength.Short).Show();
             }
         }
 

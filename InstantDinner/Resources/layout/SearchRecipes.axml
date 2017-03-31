@@ -13,7 +13,7 @@
         android:id="@+id/textViewNumberOfRecipes" />
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400px"
         android:id="@+id/imageViewRecipeImage"
         android:layout_marginBottom="20dp" />
     <TextView
@@ -30,14 +30,24 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:id="@+id/txtViewPublisher" />
-    <Button
-        android:text="Previous"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonPreviousRecipe" />
-      <Button
-        android:text="Next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonNextRecipe" />
+        android:id="@+id/linearLayout1">
+        <Button
+            android:text="Previous"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/buttonPreviousRecipe" />
+        <Button
+            android:text="Next"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/buttonNextRecipe" />
+    </LinearLayout>
 </LinearLayout>
