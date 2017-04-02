@@ -180,6 +180,9 @@ namespace InstantDinner
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f050001
+			public const int btnBlack = 2131034113;
+			
 			// aapt resource value: 0x7f050000
 			public const int btnMainStyle = 2131034112;
 			

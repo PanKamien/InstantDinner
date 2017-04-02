@@ -5,6 +5,12 @@
     <item name="android:textSize">25sp</item>
     <item name="android:layout_marginTop">25px</item>
     <item name="android:height">125px</item>
+    <item name="android:background">#000000</item>
+    <item name="android:textColor">#efefef</item>
+  </style>
+  <style name="btnBlack">
+    <item name="android:background">#000000</item>
+    <item name="android:textColor">#efefef</item>
   </style>
 
 </resources>
