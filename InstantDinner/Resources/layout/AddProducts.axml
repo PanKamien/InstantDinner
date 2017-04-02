@@ -3,39 +3,30 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25px"
-    android:background="#FFC070">
+    android:layout_margin="20px">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20px"
         android:hint="Add product"
-        android:textColor="#fbfbfb"
-        android:textColorHint="#FFE4C4"
         android:id="@+id/edtTxtProduct1" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20px"
         android:hint="Add product"
-        android:textColor="#fbfbfb"
-        android:textColorHint="#FFE4C4"
         android:id="@+id/edtTxtProduct2" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20px"
         android:hint="Add product"
-        android:textColor="#fbfbfb"
-        android:textColorHint="#FFE4C4"
         android:id="@+id/edtTxtProduct3" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20px"
         android:hint="Add product"
-        android:textColor="#fbfbfb"
-        android:textColorHint="#FFE4C4"
         android:id="@+id/edtTxtProduct4" />
     <EditText
         android:layout_width="match_parent"
@@ -43,13 +34,10 @@
         android:layout_marginTop="20px"
         android:layout_marginBottom="20dp"
         android:hint="Add product"
-        android:textColor="#fbfbfb"
-        android:textColorHint="#FFE4C4"
         android:id="@+id/edtTxtProduct5" />
     <Button
         android:text="Search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonSearch"
-        style="@style/btnBlack" />
+        android:id="@+id/buttonSearch" />
 </LinearLayout>
