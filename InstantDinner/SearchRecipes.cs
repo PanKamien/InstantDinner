@@ -16,9 +16,9 @@ namespace InstantDinner
         RootObject dane;
         ImageView imageViewRecipeImage;
         TextView txtViewRecipeTitle, txtViewPublisher, txtViewNumberOfRecipes;
-        string ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, key;
+        string ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, key, recipeID;
         int recipeCount, i;
-        Button buttonPreviousRecipe ,buttonNextRecipe;
+        Button buttonPreviousRecipe, buttonNextRecipe, buttonGetRecipe;
 
         public override void OnBackPressed()
         {
@@ -35,8 +35,11 @@ namespace InstantDinner
             txtViewNumberOfRecipes = FindViewById<TextView>(Resource.Id.textViewNumberOfRecipes);
             buttonPreviousRecipe = FindViewById<Button>(Resource.Id.buttonPreviousRecipe);
             buttonNextRecipe = FindViewById<Button>(Resource.Id.buttonNextRecipe);
+            buttonGetRecipe = FindViewById<Button>(Resource.Id.buttonGetRecipe);
+
             buttonPreviousRecipe.Enabled = false;
             buttonNextRecipe.Enabled = false;
+            buttonGetRecipe.Enabled = false;
 
             i = 0;
             key = "9393b6d777ae25211c8b14a569882e64";
@@ -59,6 +62,13 @@ namespace InstantDinner
                 PreviousRecipe();
             };
 
+            buttonGetRecipe.Click += (s, e) =>
+            {
+                SendRecipeId();
+            };
+
+
+
         }
 
         public async void SearchRecipe()
@@ -76,20 +86,25 @@ namespace InstantDinner
                     Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
                     txtViewRecipeTitle.Text = dane.recipes[i].title;
                     txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
+                    recipeID = dane.recipes[i].recipe_id;
                     buttonNextRecipe.Enabled = true;
+                    buttonGetRecipe.Enabled = true;
                 }
                 else if (recipeCount == 1)
                 {
                     txtViewNumberOfRecipes.Text = "Recipe: 1/" + dane.count.ToString();
                     Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
                     txtViewRecipeTitle.Text = dane.recipes[i].title;
+                    recipeID = dane.recipes[i].recipe_id;
                     txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
+                    buttonGetRecipe.Enabled = true;
                 }
                 else
                 {
                     txtViewRecipeTitle.Text = "Recipes not found";
                     txtViewPublisher.Text = "";
                     buttonNextRecipe.Enabled = false;
+                    buttonGetRecipe.Enabled = false;
                 }
 
                 
@@ -106,7 +121,9 @@ namespace InstantDinner
                 Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
                 txtViewRecipeTitle.Text = dane.recipes[i].title;
                 txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
+                recipeID = dane.recipes[i].recipe_id;
                 buttonPreviousRecipe.Enabled = true;
+                buttonGetRecipe.Enabled = true;
                 if (i == recipeCount - 1)
                     buttonNextRecipe.Enabled = false;
             }
@@ -125,7 +142,9 @@ namespace InstantDinner
                 Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
                 txtViewRecipeTitle.Text = dane.recipes[i].title;
                 txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
+                recipeID = dane.recipes[i].recipe_id;
                 buttonNextRecipe.Enabled = true;
+                buttonGetRecipe.Enabled = true;
                 if (i == 0)
                     buttonPreviousRecipe.Enabled = false;
                 
@@ -136,6 +155,13 @@ namespace InstantDinner
             }
         }
 
+
+        public void SendRecipeId()
+        {
+            Intent nextActivity = new Intent(this, typeof(GetRecipes));
+            nextActivity.PutExtra("recipeID", recipeID);
+            StartActivity(nextActivity);
+        }
 
 
 

@@ -36,12 +36,12 @@ namespace InstantDinner
 
             buttonSearch.Click += (s, e) =>
             {
-                GetRecipe();
+                GetRecipes();
             };
 
         }
 
-        public void GetRecipe()
+        public void GetRecipes()
         {
             Intent nextActivity = new Intent(this, typeof(SearchRecipes));
             nextActivity.PutExtra("ingredient1", edtTxtProduct1.Text);

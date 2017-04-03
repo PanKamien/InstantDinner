@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="AddProducts.cs" />
     <Compile Include="F2FSearchAPI.cs" />
+    <Compile Include="GetRecipes.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +83,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SearchRecipes.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\GetRecipes.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
