@@ -14,7 +14,7 @@ namespace InstantDinner
     public class SearchRecipes : Activity
     {
         RootObject dane;
-        ImageView imageViewRecipeImage;
+        ImageView imgViewRecipeImg_1;
         TextView txtViewRecipeTitle, txtViewPublisher, txtViewNumberOfRecipes;
         string ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, key, recipeID;
         int recipeCount, i;
@@ -29,7 +29,7 @@ namespace InstantDinner
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.SearchRecipes);
 
-            imageViewRecipeImage = FindViewById<ImageView>(Resource.Id.imageViewRecipeImage);
+            imgViewRecipeImg_1 = FindViewById<ImageView>(Resource.Id.imgViewRecipeImg_1);
             txtViewRecipeTitle = FindViewById<TextView>(Resource.Id.txtViewRecipeTitle);
             txtViewPublisher = FindViewById<TextView>(Resource.Id.txtViewPublisher);
             txtViewNumberOfRecipes = FindViewById<TextView>(Resource.Id.textViewNumberOfRecipes);
@@ -83,7 +83,7 @@ namespace InstantDinner
                 if (recipeCount > 1)
                 {
                     txtViewNumberOfRecipes.Text = "Recipe: 1/" +  dane.count.ToString();
-                    Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                    Picasso.With(this).Load(dane.recipes[i].image_url).Into(imgViewRecipeImg_1);
                     txtViewRecipeTitle.Text = dane.recipes[i].title;
                     txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
                     recipeID = dane.recipes[i].recipe_id;
@@ -93,7 +93,7 @@ namespace InstantDinner
                 else if (recipeCount == 1)
                 {
                     txtViewNumberOfRecipes.Text = "Recipe: 1/" + dane.count.ToString();
-                    Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                    Picasso.With(this).Load(dane.recipes[i].image_url).Into(imgViewRecipeImg_1);
                     txtViewRecipeTitle.Text = dane.recipes[i].title;
                     recipeID = dane.recipes[i].recipe_id;
                     txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
@@ -118,7 +118,7 @@ namespace InstantDinner
             {
                 i++;
                 txtViewNumberOfRecipes.Text = "Recipe: " + (i+1) + "/" + dane.count.ToString();
-                Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                Picasso.With(this).Load(dane.recipes[i].image_url).Into(imgViewRecipeImg_1);
                 txtViewRecipeTitle.Text = dane.recipes[i].title;
                 txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
                 recipeID = dane.recipes[i].recipe_id;
@@ -139,7 +139,7 @@ namespace InstantDinner
             {
                 i--;
                 txtViewNumberOfRecipes.Text = "Recipe: " + (i + 1) + "/" + dane.count.ToString();
-                Picasso.With(this).Load(dane.recipes[i].image_url).Into(imageViewRecipeImage);
+                Picasso.With(this).Load(dane.recipes[i].image_url).Into(imgViewRecipeImg_1);
                 txtViewRecipeTitle.Text = dane.recipes[i].title;
                 txtViewPublisher.Text = "Publisher: " + dane.recipes[i].publisher;
                 recipeID = dane.recipes[i].recipe_id;

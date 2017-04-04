@@ -19,7 +19,8 @@
             android:layout_height="250dp"
             android:id="@+id/imageView1"
             android:layout_gravity="center"
-            android:layout_marginBottom="25px" />
+            android:layout_marginBottom="25px"
+            android:scaleType="centerCrop" />
         <Button
             android:text="Add products"
             android:layout_width="match_parent"

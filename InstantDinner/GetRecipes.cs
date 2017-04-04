@@ -12,6 +12,7 @@ using Android.Widget;
 using Android.Content.PM;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Square.Picasso;
 
 namespace InstantDinner
 {
@@ -21,7 +22,10 @@ namespace InstantDinner
         string recipeID;
         RootObject przepisDane;
         string key;
-        TextView txtViewRecipe1;
+        ImageView imgViewRecipeImg_2;
+        TextView txtViewGetRecipe_SocialRank, txtViewGetRecipe_Title, txtViewGetRecipe_Ingredients;
+
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,12 +35,17 @@ namespace InstantDinner
             key = "9393b6d777ae25211c8b14a569882e64";
             recipeID = Intent.GetStringExtra("recipeID" ?? "");
 
-            txtViewRecipe1 = FindViewById<TextView>(Resource.Id.txtViewIngredient1);
+            imgViewRecipeImg_2 = FindViewById<ImageView>(Resource.Id.imgViewRecipeImg_2);
+            txtViewGetRecipe_SocialRank = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_SocialRank);
+            txtViewGetRecipe_Title = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_Title);
+            txtViewGetRecipe_Ingredients = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_Ingredients);
 
-            SearchRecipe();
+
+
+            GetRecipe();
         }
 
-        public async void SearchRecipe()
+        public async void GetRecipe()
         {
             using (var httpClient = new HttpClient())
             {
@@ -44,10 +53,40 @@ namespace InstantDinner
                 var json = await httpClient.GetStringAsync(url);
                 przepisDane = JsonConvert.DeserializeObject<RootObject>(json);
             }
+            LoadImage();
+            LoadSocialRank();
+            LoadRecipeTitle();
+            LoadIngredients();
 
-            txtViewRecipe1.Text = "title: " + przepisDane.recipe.title + ",\n" + "ingr 1: " + przepisDane.recipe.ingredients[0] + ",\ningr 2: " + przepisDane.recipe.ingredients[1];
         }
 
+
+
+        public void LoadImage()
+        {
+            Picasso.With(this).Load(przepisDane.recipe.image_url).Into(imgViewRecipeImg_2);
+        }
+
+        public void LoadSocialRank()
+        {
+            txtViewGetRecipe_SocialRank.Text = "Social rank: " + Math.Round(przepisDane.recipe.social_rank, 2).ToString();
+        }
+
+        public void LoadRecipeTitle()
+        {
+            txtViewGetRecipe_Title.Text = przepisDane.recipe.title;
+        }
+
+        public void LoadIngredients()
+        {
+            int i = 0;
+            while(i < przepisDane.recipe.ingredients.Count())
+            {
+                txtViewGetRecipe_Ingredients.Text += "• " + przepisDane.recipe.ingredients[i] + "\n";
+                i++;
+            }
+            
+        }
 
     }
 }

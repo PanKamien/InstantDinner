@@ -23,8 +23,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="400px"
-            android:id="@+id/imageViewRecipeImage"
-            android:layout_marginBottom="20dp" />
+            android:id="@+id/imgViewRecipeImg_1"
+            android:layout_marginBottom="20dp"
+            android:scaleType="centerCrop" />
         <TextView
             android:text="Loading recipes..."
             android:textAppearance="?android:attr/textAppearanceLarge"
