@@ -4,52 +4,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10"
-    android:layout_margin="20px">
+    android:layout_marginBottom="20px"
+    android:layout_marginLeft="20px"
+    android:layout_marginRight="20px">
     <LinearLayout
         android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="7"
+        android:gravity="center"
         android:id="@+id/linearLayout1">
         <TextView
-            android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:id="@+id/textViewNumberOfRecipes" />
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:id="@+id/textViewNumberOfRecipes"
+            android:gravity="center_vertical" />
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="400px"
+            android:layout_height="0px"
             android:id="@+id/imgViewRecipeImg_1"
+            android:layout_weight="8"
             android:layout_marginBottom="20dp"
             android:scaleType="centerCrop" />
         <TextView
             android:text="Loading recipes..."
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:minHeight="60dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_height="0px"
+            android:layout_weight="2"
             android:id="@+id/txtViewRecipeTitle"
             android:gravity="center" />
         <TextView
             android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_height="0px"
             android:gravity="center"
+            android:layout_weight="2"
             android:id="@+id/txtViewPublisher" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
         android:layout_weight="1"
         android:id="@+id/linearLayout1"
         android:layout_marginLeft="20dp"
@@ -57,22 +60,20 @@
         android:gravity="center">
         <Button
             android:text="Previous"
-            android:layout_width="fill_parent"
+            android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/buttonPreviousRecipe" />
         <Button
             android:text="Next"
-            android:layout_width="fill_parent"
+            android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/buttonNextRecipe" />
     </LinearLayout>
     <LinearLayout
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0px"
         android:layout_weight="1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -80,9 +81,10 @@
         android:gravity="center">
         <Button
             android:text="Get recipe"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/buttonGetRecipe"
+            android:padding="15dp"
             android:textSize="20dp" />
     </LinearLayout>
 </LinearLayout>

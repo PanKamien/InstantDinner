@@ -57,7 +57,6 @@ namespace InstantDinner
             LoadSocialRank();
             LoadRecipeTitle();
             LoadIngredients();
-
         }
 
 
