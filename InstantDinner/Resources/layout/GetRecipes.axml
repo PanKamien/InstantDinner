@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_margin="20dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_marginBottom="10px"
+        android:layout_weight="2"
+        android:id="@+id/linearLayout1">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgViewRecipeImg_2"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_marginBottom="10px"
+        android:layout_weight="1"
+        android:id="@+id/linearLayout3"
+        android:gravity="center">
+        <TextView
+            android:text="Recipe titleRecipe titleRecipe titleRecipe titleRecipe title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtViewGetRecipe_Title"
+            android:gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:id="@+id/linearLayout2"
+        android:gravity="bottom">
+        <TextView
+            android:text="Social rank:"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtViewGetRecipe_SocialRank" />
+        <TextView
+            android:text="Ingredients:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txtViewGetRecipe_Ingredients:" />
+    </LinearLayout>
+<!--  <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_marginBottom="10px"
+        android:layout_weight="1"
+        android:id="@+id/linearLayout4">
+        <TextView
+            android:text="Ingredients:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtViewGetRecipe_Ingredients:" /> 
+    </LinearLayout> -->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="4"
+        android:id="@+id/scrollView1">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtViewGetRecipe_Ingredients" />
+    </ScrollView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:id="@+id/linearLayout5"
+        android:gravity="center">
+        <Button
+            android:text="Button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonViewInBrowser" />
+    </LinearLayout>
+</LinearLayout>
