@@ -26,7 +26,7 @@ namespace InstantDinner
         TextView txtViewGetRecipe_SocialRank, txtViewGetRecipe_Title, txtViewGetRecipe_Ingredients;
         Button buttonViewInBrowser;
 
-
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,6 +46,8 @@ namespace InstantDinner
 
             buttonViewInBrowser.Click += delegate {
                 ViewInBrowser();
+
+                
             };
 
 
