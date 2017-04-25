@@ -89,7 +89,7 @@
         android:id="@+id/linearLayout5"
         android:gravity="center">
         <Button
-            android:text="View in browser"
+            android:text="Button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonViewInBrowser" />
