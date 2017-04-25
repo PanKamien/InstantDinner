@@ -5,9 +5,7 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:layout_marginTop="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp">
+    android:layout_margin="20dp">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
@@ -91,7 +89,7 @@
         android:id="@+id/linearLayout5"
         android:gravity="center">
         <Button
-            android:text="Button"
+            android:text="View in browser"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonViewInBrowser" />
