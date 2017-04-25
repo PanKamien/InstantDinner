@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+  <style name="btnMainStyle">
+    <item name="android:textSize">25sp</item>
+    <item name="android:layout_marginTop">25px</item>
+    <item name="android:height">125px</item>
+  </style>
+
+</resources>

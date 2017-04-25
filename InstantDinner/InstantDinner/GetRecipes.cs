@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +24,7 @@ namespace InstantDinner
         string key;
         ImageView imgViewRecipeImg_2;
         TextView txtViewGetRecipe_SocialRank, txtViewGetRecipe_Title, txtViewGetRecipe_Ingredients;
+        Button buttonViewInBrowser;
 
 
 
@@ -39,10 +40,15 @@ namespace InstantDinner
             txtViewGetRecipe_SocialRank = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_SocialRank);
             txtViewGetRecipe_Title = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_Title);
             txtViewGetRecipe_Ingredients = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_Ingredients);
-
-
+            buttonViewInBrowser = FindViewById<Button>(Resource.Id.buttonViewInBrowser);
 
             GetRecipe();
+
+            buttonViewInBrowser.Click += delegate {
+                ViewInBrowser();
+            };
+
+
         }
 
         public async void GetRecipe()
@@ -79,13 +85,22 @@ namespace InstantDinner
         public void LoadIngredients()
         {
             int i = 0;
-            while(i < przepisDane.recipe.ingredients.Count())
+            while (i < przepisDane.recipe.ingredients.Count())
             {
-                txtViewGetRecipe_Ingredients.Text += "� " + przepisDane.recipe.ingredients[i] + "\n";
+                txtViewGetRecipe_Ingredients.Text += "• " + przepisDane.recipe.ingredients[i] + "\n";
                 i++;
             }
-            
+
         }
+
+
+        public void ViewInBrowser()
+        {
+            var uri = Android.Net.Uri.Parse(przepisDane.recipe.source_url);
+            var intent = new Intent(Intent.ActionView, uri);
+            StartActivity(intent);
+        }
+
 
     }
 }
