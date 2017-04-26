@@ -10,7 +10,7 @@ namespace InstantDinner
     [Activity(Label = "AddProducts", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
     public class AddProducts : Activity
     {
-        TextView txtViewRecipeTitle, txtViewRecipeCount;
+        TextView txtViewRecipeTitle;
         EditText edtTxtProduct1, edtTxtProduct2, edtTxtProduct3, edtTxtProduct4, edtTxtProduct5;
         Button buttonSearch;
 

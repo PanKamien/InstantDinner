@@ -16,16 +16,25 @@ namespace InstantDinner
             SetContentView(Resource.Layout.Main);
 
             var btnAddProducts = FindViewById<Button>(Resource.Id.btnAddProducts);
-            var btnMealsHistory = FindViewById<Button>(Resource.Id.btnMealsHistory);
+            var btnFavMeals = FindViewById<Button>(Resource.Id.btnFavMeals);
 
             btnAddProducts.Click += btnAddProducts_Click;
+            btnFavMeals.Click += btnFavMeals_Click;
         }
 
+        
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
             Intent addProductsActivity = new Intent(this, typeof(AddProducts));
             StartActivity(addProductsActivity);
 
         }
+
+        private void btnFavMeals_Click(object sender, EventArgs e)
+        {
+            Intent favMealsActivity = new Intent(this, typeof(FavMeals));
+            StartActivity(favMealsActivity);
+        }
+
     }
 }
