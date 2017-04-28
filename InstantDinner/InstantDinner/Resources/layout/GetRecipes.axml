@@ -5,13 +5,16 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:layout_margin="20dp">
+    android:layout_marginBottom="10px"
+    android:layout_marginTop="10px"
+    android:layout_marginLeft="20px"
+    android:layout_marginRight="20px">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_marginBottom="10px"
         android:layout_weight="2"
+        android:layout_marginBottom="10px"
         android:id="@+id/linearLayout1">
         <ImageView
             android:layout_width="fill_parent"
@@ -23,9 +26,8 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_marginBottom="10px"
-        android:layout_weight="1"
-        android:id="@+id/linearLayout3"
+        android:layout_weight="2"
+        android:id="@+id/linearLayout2"
         android:gravity="center">
         <TextView
             android:text="Recipe titleRecipe titleRecipe titleRecipe titleRecipe title"
@@ -33,6 +35,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtViewGetRecipe_Title"
+            android:layout_marginBottom="10px"
             android:gravity="center" />
     </LinearLayout>
     <LinearLayout
@@ -40,40 +43,20 @@
         android:layout_width="fill_parent"
         android:layout_height="0px"
         android:layout_weight="1"
-        android:id="@+id/linearLayout2"
-        android:gravity="bottom">
-        <TextView
-            android:text="Social rank:"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtViewGetRecipe_SocialRank" />
+        android:id="@+id/linearLayout3"
+        android:gravity="center_vertical">
         <TextView
             android:text="Ingredients:"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/txtViewGetRecipe_Ingredients:" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
-<!--  <LinearLayout
+    <ScrollView
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="0px"
+        android:layout_weight="7"
         android:layout_marginBottom="10px"
-        android:layout_weight="1"
-        android:id="@+id/linearLayout4">
-        <TextView
-            android:text="Ingredients:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtViewGetRecipe_Ingredients:" /> 
-    </LinearLayout> -->
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="4"
         android:id="@+id/scrollView1">
         <TextView
             android:textAppearance="?android:attr/textAppearanceMedium"

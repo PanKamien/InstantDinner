@@ -16,14 +16,14 @@ using Square.Picasso;
 
 namespace InstantDinner
 {
-    [Activity(Label = "GetRecipes", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]
+    [Activity(Label = "", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.DeviceDefault.Light")]
     public class GetRecipes : Activity
     {
         string recipeID;
         RootObject przepisDane;
-        string key;
+        string key, label;
         ImageView imgViewRecipeImg_2;
-        TextView txtViewGetRecipe_SocialRank, txtViewGetRecipe_Title, txtViewGetRecipe_Ingredients;
+        TextView txtViewGetRecipe_Title, txtViewGetRecipe_Ingredients;
         Button buttonViewInBrowser;
 
 
@@ -37,7 +37,7 @@ namespace InstantDinner
             recipeID = Intent.GetStringExtra("recipeID" ?? "");
 
             imgViewRecipeImg_2 = FindViewById<ImageView>(Resource.Id.imgViewRecipeImg_2);
-            txtViewGetRecipe_SocialRank = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_SocialRank);
+
             txtViewGetRecipe_Title = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_Title);
             txtViewGetRecipe_Ingredients = FindViewById<TextView>(Resource.Id.txtViewGetRecipe_Ingredients);
             buttonViewInBrowser = FindViewById<Button>(Resource.Id.buttonViewInBrowser);
@@ -50,6 +50,27 @@ namespace InstantDinner
 
 
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            var inflater = MenuInflater;
+            inflater.Inflate(Resource.Menu.getRecipesActionBar, menu);
+            return true;
+
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            int id = item.ItemId;
+            if (id == Resource.Id.actionBarAddToFav)
+            {
+                Toast.MakeText(this, "Added to vaforites", ToastLength.Short).Show();
+                return true;
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+
+
 
         public async void GetRecipe()
         {
@@ -74,7 +95,8 @@ namespace InstantDinner
 
         public void LoadSocialRank()
         {
-            txtViewGetRecipe_SocialRank.Text = "Social rank: " + Math.Round(przepisDane.recipe.social_rank, 2).ToString();
+            label = "Social rank: " + Math.Round(przepisDane.recipe.social_rank, 2).ToString();
+            this.Title = label;
         }
 
         public void LoadRecipeTitle()

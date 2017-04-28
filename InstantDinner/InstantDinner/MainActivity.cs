@@ -17,12 +17,16 @@ namespace InstantDinner
 
             var btnAddProducts = FindViewById<Button>(Resource.Id.btnAddProducts);
             var btnFavMeals = FindViewById<Button>(Resource.Id.btnFavMeals);
+            //var linearLayoutMainDown = FindViewById<LinearLayout>(Resource.Id.linearLayoutMainDown);
+
+
 
             btnAddProducts.Click += btnAddProducts_Click;
             btnFavMeals.Click += btnFavMeals_Click;
+            //linearLayoutMainDown.Click += linearLayoutMainDown_Click;
         }
 
-        
+
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
             Intent addProductsActivity = new Intent(this, typeof(AddProducts));
@@ -35,6 +39,12 @@ namespace InstantDinner
             Intent favMealsActivity = new Intent(this, typeof(FavMeals));
             StartActivity(favMealsActivity);
         }
+
+        //private void linearLayoutMainDown_Click(object sender, EventArgs e)
+        //{
+        //    Intent favMealsActivity = new Intent(this, typeof(FavMeals));
+        //    StartActivity(favMealsActivity);
+        //}
 
     }
 }

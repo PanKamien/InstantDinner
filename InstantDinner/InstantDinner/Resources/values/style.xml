@@ -6,5 +6,8 @@
     <item name="android:layout_marginTop">25px</item>
     <item name="android:height">125px</item>
   </style>
+  <style name="actionBarStyle"
+         parent="@android:style/Theme.DeviceDefault.Light">  
+  </style>
 
 </resources>

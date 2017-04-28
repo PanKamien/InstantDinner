@@ -39,6 +39,15 @@
                 style="@style/btnMainStyle" />
         </LinearLayout>
     </LinearLayout>
+  <!--<LinearLayout
+        android:orientation="vertical" ____________________________________ dokladna kopia tego co ponizej
+        android:layout_weight="1"  ________________________________________ (linearLayoutMainDown)
+        android:layout_width="match_parent"  ______________________________ lecz z uwzględnieniem możliwości
+        android:layout_height="0px"  ______________________________________ klikania i odpowiednim tłem
+        android:id="@+id/linearLayoutMainDown"
+        android:background="?android:attr/selectableItemBackground" 
+        android:clickable="true"
+        android:gravity="bottom">-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="1"
